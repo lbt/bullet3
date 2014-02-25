@@ -5,7 +5,7 @@
 Name:           libbullet
 %define lname   libbullet2_82
 Version: 2.82
-Release: 2
+Release: 3
 Summary:        Bullet Continuous Collision Detection and Physics Library
 License:        Zlib
 Group:          Development/Libraries/C and C++
@@ -16,6 +16,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  libxml2-devel
 Source:         libbullet-%{version}.tar.gz
 Patch1:	0001-Add-missing-UseBullet.cmake.patch
+Patch2:	0002-Restore-missing-Bullet-C-Api.h.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 
 %description
@@ -48,6 +49,7 @@ appliancation with the Bullet library.
 %prep
 %setup -q -n src
 %patch1 -p1
+%patch2 -p1
 
 %build
 LIB_DIR=%{_lib}
