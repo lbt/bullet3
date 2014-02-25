@@ -1,3 +1,6 @@
+* Tue Feb 25 2014 David Greaves <david@dgreaves.com> - 2.82-4
+- Don't install vectormath/ includes which are no longer shipped
+
 * Tue Feb 25 2014 David Greaves <david@dgreaves.com> - 2.82-3
 - Restore missing Bullet-C-Api.h
 
