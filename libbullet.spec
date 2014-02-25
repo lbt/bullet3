@@ -53,15 +53,13 @@ appliancation with the Bullet library.
 
 %build
 LIB_DIR=%{_lib}
-cmake . -DMAKE_SKIP_RPATH=ON \
+cmake . \
  -DBUILD_SHARED_LIBS=ON \
  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
  -DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
  -DLIB_SUFFIX=${LIB_DIR#lib} \
- -DBUILD_EXTRAS=OFF \
  -DBUILD_DEMOS=OFF \
- -DUSE_GLUT=OFF \
- -DUSE_NEON=ON
+ -DUSE_GLUT=OFF
 
 make VERBOSE=1 %{?_smp_mflags}
 
@@ -80,6 +78,7 @@ make install DESTDIR=%{buildroot}
 %files devel
 %defattr(-,root,root)
 %{_includedir}/bullet/
+%{_libdir}/cmake/bullet/*cmake
 %{_libdir}/pkgconfig/bullet.pc
 %{_libdir}/libB*.so
 %{_libdir}/libLinearMath*.so
